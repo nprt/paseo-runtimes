@@ -1613,7 +1613,7 @@ impl pallet_staking_async_ah_client::Config for Runtime {
 	type SessionInterface = Session;
 	type SendToAssetHub = StakingXcmToAssetHub;
 	// Paseo RC currently has 150 validators. 100 minimum for now.
-	type MinimumValidatorSetSize = ConstU32<100>;
+	type MinimumValidatorSetSize = ConstU32<2>;
 	type UnixTime = Timestamp;
 	type PointsPerBlock = ConstU32<20>;
 	type MaxOffenceBatchSize = ConstU32<32>;
