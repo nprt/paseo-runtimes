@@ -165,7 +165,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	spec_name: alloc::borrow::Cow::Borrowed("paseo"),
 	impl_name: alloc::borrow::Cow::Borrowed("paseo-testnet"),
 	authoring_version: 0,
-	spec_version: 2_002_003,
+	spec_version: 2_002_004,
 	impl_version: 0,
 	apis: RUNTIME_API_VERSIONS,
 	transaction_version: 26,
@@ -1612,7 +1612,9 @@ impl pallet_staking_async_ah_client::Config for Runtime {
 	type AdminOrigin = EnsureRoot<AccountId>;
 	type SessionInterface = Session;
 	type SendToAssetHub = StakingXcmToAssetHub;
-	// Paseo RC currently has 150 validators. 100 minimum for now.
+	// The Summit Network operates with a fixed set of 7 validators.
+    // We are setting a lower value to account for occasional shifts in the
+    // number of validators during unexpected VM migrations, or similar.
 	type MinimumValidatorSetSize = ConstU32<2>;
 	type UnixTime = Timestamp;
 	type PointsPerBlock = ConstU32<20>;
